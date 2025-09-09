@@ -29,7 +29,7 @@ const userSchema = new Schema({
         required: true,
     },
     coverImage: {
-        type: string,
+        type: String,
     },
     watchHistory: [
         {
@@ -38,11 +38,11 @@ const userSchema = new Schema({
         }
     ],
     password: {
-        type: string,
+        type: String,
         required: [true, 'Password is required']
     },
     refreshToken: {
-        type: string
+        type: String
     }
 },{timestamps: true})
 
@@ -63,7 +63,7 @@ userSchema.methods.generateAccessToken = function (){
         {
             _id: this._id,
             email: this.email,
-            username: this.username,
+            userName: this.userName,
             fullName: this.fullName
         },
         process.env.ACCESS_TOKEN_SECRET,
